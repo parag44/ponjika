@@ -50,17 +50,18 @@
 
 Turn the Digital Crown to move between pages:
 
-1. **আজ**: weekday, Bangla date and year (বঙ্গাব্দ), Gregorian date, season, today's holiday if any, day progress. **Tap the date to open the Bangla calendar.**
-2. **আবহাওয়া**: temperature and conditions; **বায়ুর মান** with advice and PM2.5; **বৃষ্টির সতর্কতা**; **গরমের সতর্কতা** with UV; humidity, wind, chance of rain, UV index; and the next 5 hours
-3. **সূর্য ও চাঁদ**: sunrise, sunset, day length, moon phase, tithi, and the dates of the next পূর্ণিমা and অমাবস্যা
-4. **ছুটি ও দিবস**: every government holiday and national day in the next 12 months, with days remaining. Multi-day holidays such as Eid show as a date range; moon-dependent dates are marked চাঁদ দেখা সাপেক্ষে.
-5. **সেটিংস**: choose your city
+0. **এক নজরে** (home): cards for the date, weather, air quality and the next holiday. Tap a card to jump to its page.
+1. **আজ**: a large Bangla date numeral in the season's colour, a this-week strip (tap it for the month calendar), and rows for tithi, season and any holiday today. Dims for Always-On when your wrist is down.
+2. **আবহাওয়া**: temperature and conditions, then alert pills for **বায়ুর মান**, **বৃষ্টি** and **গরম**, the next 5 hours, and details (humidity, wind, chance of rain, UV, mask advice).
+3. **সূর্য ও চাঁদ**: a sun arc showing where the sun is now, sunrise, sunset and day length; the moon phase, tithi, and the next new and full moon.
+4. **ছুটি ও দিবস**: the next holiday with a big countdown, then every government holiday and national day in the next 12 months, grouped by month. Moon-dependent dates are marked চাঁদ দেখা সাপেক্ষে.
+5. **সেটিংস**: choose your city (search, or pick from Bangladesh and abroad).
 
-![The four app pages](docs/images/app-pages.png)
+![The app pages](docs/images/app-pages.png)
 
 ### বাংলা ক্যালেন্ডার
 
-Tap today's date on the **আজ** page to open a Bangla month calendar. Each day shows its Bangla date with the Gregorian date underneath. Today is highlighted in the season's colour, government holidays are shaded red, the Friday–Saturday weekend is red, and full (●) and new (○) moons are marked. Use ‹ › to change month, and tap any day to see both dates, the weekday, the tithi at sunrise, the season and any holiday.
+Tap today's date on the **আজ** page to open a Bangla month calendar. Each day shows its Bangla date; the selected day's English date, weekday and tithi appear in a bar below. Today is highlighted in the season's colour, government holidays are shaded red, the Friday–Saturday weekend is red, and full and new moons are marked with dots. Use ‹ › to change month, and tap any day to see both dates, the weekday, the tithi at sunrise, the season and any holiday.
 
 ![Bangla month calendar](docs/images/bangla-calendar.png)
 

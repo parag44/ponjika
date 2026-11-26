@@ -34,7 +34,7 @@ enum WeatherCode {
 
 /// Dashboard pages in the app. Complications deep-link to these with `ponjika://<page>`.
 enum AppPage: String, CaseIterable, Hashable {
-    case today, weather, sky, days, settings
+    case home, today, weather, sky, days, settings
 
     var url: URL { URL(string: "ponjika://\(rawValue)")! }
 }

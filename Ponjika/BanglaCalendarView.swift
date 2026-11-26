@@ -37,13 +37,13 @@ struct BanglaCalendarView: View {
             VStack(spacing: 6) {
                 header(first: first, last: days.last ?? first, color: seasonColor)
 
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 1), count: 7), spacing: 3) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 1), count: 7), spacing: 2) {
                     ForEach(0..<7, id: \.self) { i in
                         Text(Self.weekdayInitials[i])
                             .font(.system(size: 10, weight: .semibold))
                             .foregroundStyle(i >= 5 ? Self.red : .secondary)
                     }
-                    ForEach(0..<leadingBlanks, id: \.self) { _ in Color.clear.frame(height: 30) }
+                    ForEach(0..<leadingBlanks, id: \.self) { _ in Color.clear.frame(height: 24) }
                     ForEach(Array(days.enumerated()), id: \.offset) { index, day in
                         cell(banglaDay: index + 1, date: day, moon: moons[calendar.startOfDay(for: day)], accent: seasonColor)
                     }
@@ -61,9 +61,12 @@ struct BanglaCalendarView: View {
     private func header(first: Date, last: Date, color: Color) -> some View {
         HStack(spacing: 4) {
             Button { shift(-1) } label: {
-                Image(systemName: "chevron.left").font(.system(size: 14, weight: .semibold)).frame(width: 26, height: 30)
+                Image(systemName: "chevron.left").font(.system(size: 11, weight: .bold))
+                    .frame(width: 26, height: 26)
+                    .background(Circle().fill(Color(white: 0.11)))
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("আগের মাস")
 
             VStack(spacing: 0) {
                 Text("\(Bangla.months[month]) \(Bangla.digits(year))")
@@ -80,9 +83,12 @@ struct BanglaCalendarView: View {
             .frame(maxWidth: .infinity)
 
             Button { shift(1) } label: {
-                Image(systemName: "chevron.right").font(.system(size: 14, weight: .semibold)).frame(width: 26, height: 30)
+                Image(systemName: "chevron.right").font(.system(size: 11, weight: .bold))
+                    .frame(width: 26, height: 26)
+                    .background(Circle().fill(Color(white: 0.11)))
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("পরের মাস")
         }
     }
 
@@ -118,33 +124,33 @@ struct BanglaCalendarView: View {
         let isWeekend = weekday == 6 || weekday == 7
         let numberColor: Color = isToday ? .black : (holiday != nil || isWeekend ? Self.red : .white)
 
+        // Bangla numeral only (English date shows in the bar below); markers as dots underneath.
         return Button { selected = calendar.startOfDay(for: date) } label: {
-            VStack(spacing: -2) {
+            VStack(spacing: 1) {
                 Text(Bangla.digits(banglaDay))
                     .font(.system(size: 13, weight: holiday != nil || isToday ? .bold : .medium))
                     .foregroundStyle(numberColor)
-                Text(Bangla.digits(calendar.component(.day, from: date)))
-                    .font(.system(size: 8))
-                    .foregroundStyle(isToday ? Color.black.opacity(0.7) : Color.secondary)
-            }
-            .frame(maxWidth: .infinity, minHeight: 30)
-            .background {
-                RoundedRectangle(cornerRadius: 7)
-                    .fill(isToday ? accent : (holiday != nil ? Self.red.opacity(0.18) : Color.clear))
-            }
-            .overlay {
-                if isSelected && !isToday {
-                    RoundedRectangle(cornerRadius: 7).stroke(accent, lineWidth: 1.5)
+                    .frame(width: 21, height: 19)
+                    .background {
+                        Capsule().fill(isToday ? accent : (holiday != nil ? Self.red.opacity(0.22) : Color.clear))
+                    }
+                    .overlay {
+                        if isSelected && !isToday { Capsule().stroke(accent, lineWidth: 1.2) }
+                    }
+                HStack(spacing: 1.5) {
+                    if let moon {
+                        Circle()
+                            .strokeBorder(moon == .full ? Self.gold : Self.silver, lineWidth: 0.8)
+                            .background(Circle().fill(moon == .full ? Self.gold : .clear))
+                            .frame(width: 3.5, height: 3.5)
+                    }
+                    if holiday != nil {
+                        Circle().fill(Self.red).frame(width: 3.5, height: 3.5)
+                    }
                 }
+                .frame(height: 3.5)
             }
-            .overlay(alignment: .topTrailing) {
-                if let moon {
-                    Image(systemName: moon == .full ? "circle.fill" : "circle")
-                        .font(.system(size: 5, weight: .bold))
-                        .foregroundStyle(moon == .full ? Self.gold : Self.silver)
-                        .padding(2)
-                }
-            }
+            .frame(maxWidth: .infinity, minHeight: 24)
         }
         .buttonStyle(.plain)
         .accessibilityLabel("\(Bangla.digits(banglaDay)) \(Bangla.months[month])\(holiday.map { ", \($0.name)" } ?? "")")
@@ -174,34 +180,38 @@ struct BanglaCalendarView: View {
         let moon = MoonPhase(calendar.date(byAdding: .hour, value: 6, to: calendar.startOfDay(for: date)) ?? date)
         let holidays = Holidays.on(date, calendar: calendar)
 
-        return VStack(alignment: .leading, spacing: 3) {
-            HStack {
-                Text(calendar.isDate(date, inSameDayAs: today) ? "আজ · \(Bangla.weekday(date))" : Bangla.weekday(date))
-                    .font(.system(size: 13, weight: .semibold))
-                    .foregroundStyle(Color(red: 1.0, green: 0.62, blue: 0.2))
+        // Compact bar: big Bangla day, then weekday · English date, then tithi.
+        // Holidays and the season follow underneath.
+        return VStack(alignment: .leading, spacing: 4) {
+            HStack(spacing: 7) {
+                Text(Bangla.digits(b.day))
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundStyle(seasonColor)
+                VStack(alignment: .leading, spacing: 0) {
+                    Text((calendar.isDate(date, inSameDayAs: today) ? "আজ · " : "")
+                         + "\(Bangla.weekday(date, short: true)) · \(Bangla.gregorianDate(date))")
+                        .font(.system(size: 11, weight: .semibold))
+                        .lineLimit(1).minimumScaleFactor(0.7)
+                    Text("\(moon.paksha) \(moon.tithiName)")
+                        .font(.system(size: 10))
+                        .foregroundStyle(moon.isWaxing ? Self.gold : Self.silver)
+                }
                 Spacer(minLength: 0)
             }
-            Text("\(Bangla.digits(b.day)) \(b.monthName) \(Bangla.digits(b.year))")
-                .font(.system(size: 16, weight: .bold))
-            Text("\(Bangla.gregorianDate(date)) \(Bangla.digits(calendar.component(.year, from: date)))")
-                .font(.system(size: 12))
-                .foregroundStyle(.secondary)
-            Label("\(moon.paksha) \(moon.tithiName)", systemImage: "moon.stars.fill")
-                .font(.system(size: 12))
-                .foregroundStyle(moon.isWaxing ? Self.gold : Self.silver)
-            Label("\(b.season.name)কাল", systemImage: b.season.symbol)
-                .font(.system(size: 12))
-                .foregroundStyle(seasonColor)
             ForEach(holidays) { holiday in
                 Label(holiday.name + (holiday.moonDependent ? " (চাঁদ দেখা সাপেক্ষে)" : ""), systemImage: holiday.symbol)
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.system(size: 11, weight: .semibold))
                     .foregroundStyle(Color(rgb: holiday.rgb))
                     .fixedSize(horizontal: false, vertical: true)
             }
+            Label("\(b.monthName) \(Bangla.digits(b.year)) · \(b.season.name)কাল", systemImage: b.season.symbol)
+                .font(.system(size: 10))
+                .foregroundStyle(seasonColor.opacity(0.9))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(8)
-        .background(RoundedRectangle(cornerRadius: 10).fill(.white.opacity(0.08)))
+        .padding(.horizontal, 10)
+        .padding(.vertical, 7)
+        .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(Color(white: 0.11)))
     }
 }
 
