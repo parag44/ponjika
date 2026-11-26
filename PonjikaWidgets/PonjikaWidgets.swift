@@ -46,5 +46,8 @@ struct PonjikaWidgets: WidgetBundle {
         SunWidget()
         MoonWidget()
         WeatherWidget()
+        AirQualityWidget()
+        RainWidget()
+        HeatWidget()
     }
 }

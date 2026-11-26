@@ -29,7 +29,7 @@ struct SunProvider: TimelineProvider {
         }
         let horizon = now.addingTimeInterval(12 * 3600)
         for offset in 0...1 {
-            if let probe = calendar.date(byAdding: .day, value: offset, to: now), let day = Sun.day(for: probe) {
+            if let probe = calendar.date(byAdding: .day, value: offset, to: now), let day = Sun.day(for: probe, at: AppSettings.place) {
                 for event in [day.sunrise, day.sunset] where event > now && event < horizon {
                     dates.insert(event.addingTimeInterval(1))
                 }
@@ -44,12 +44,13 @@ struct SunView: View {
     let entry: DayEntry
 
     var body: some View {
-        let next = Sun.next(after: entry.date)
+        let place = AppSettings.place
+        let next = Sun.next(after: entry.date, at: place)
         let isRise = next?.event == .sunrise
         let label = isRise ? "সূর্যোদয়" : "সূর্যাস্ত"
         let symbol = isRise ? "sunrise.fill" : "sunset.fill"
         let color = isRise ? SunColor.rise : SunColor.set
-        let time = next.map { Bangla.clock($0.at) } ?? "--"
+        let time = next.map { Bangla.clock($0.at, calendar: place.calendar) } ?? "--"
 
         switch family {
         case .accessoryInline:
@@ -90,7 +91,8 @@ struct SunView: View {
 
     /// সূর্যোদয় / সূর্যাস্ত for today, plus a bar showing where the sun is in the day.
     private var rectangular: some View {
-        let today = Sun.day(for: entry.date)
+        let place = AppSettings.place
+        let today = Sun.day(for: entry.date, at: place)
         let progress: Double = today.map {
             min(max(entry.date.timeIntervalSince($0.sunrise) / $0.daylight, 0), 1)
         } ?? 0
@@ -99,14 +101,14 @@ struct SunView: View {
                 Image(systemName: "sunrise.fill").symbolRenderingMode(.multicolor)
                 Text("সূর্যোদয়").opacity(0.8)
                 Spacer(minLength: 2)
-                Text(today.map { Bangla.clock($0.sunrise) } ?? "--")
+                Text(today.map { Bangla.clock($0.sunrise, calendar: place.calendar) } ?? "--")
                     .fontWeight(.bold).foregroundStyle(SunColor.rise).widgetAccentable()
             }
             HStack(spacing: 4) {
                 Image(systemName: "sunset.fill").symbolRenderingMode(.multicolor)
                 Text("সূর্যাস্ত").opacity(0.8)
                 Spacer(minLength: 2)
-                Text(today.map { Bangla.clock($0.sunset) } ?? "--")
+                Text(today.map { Bangla.clock($0.sunset, calendar: place.calendar) } ?? "--")
                     .fontWeight(.bold).foregroundStyle(SunColor.set).widgetAccentable()
             }
             GeometryReader { geo in
@@ -138,7 +140,7 @@ struct SunWidget: Widget {
                 .widgetURL(AppPage.sky.url)
         }
         .configurationDisplayName("সূর্যোদয় / সূর্যাস্ত")
-        .description("Next sunrise or sunset in Dhaka, in Bangla.")
+        .description("Next sunrise or sunset for your chosen city, in Bangla.")
         .supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline, .accessoryCorner])
     }
 }

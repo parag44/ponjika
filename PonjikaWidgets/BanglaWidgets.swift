@@ -189,52 +189,64 @@ struct BanglaDayWidget: Widget {
     }
 }
 
-// MARK: - দিবস কাউন্টডাউন (national day countdown)
+// MARK: - ছুটি ও দিবস কাউন্টডাউন (holiday countdown)
 
 struct BanglaCountdownView: View {
     @Environment(\.widgetFamily) private var family
     let entry: DayEntry
 
     var body: some View {
-        let (occasion, days) = BanglaOccasion.next(after: entry.date)
-        let color = Color(occasion.rgb)
+        if let holiday = Holidays.next(from: entry.date) {
+            content(holiday, days: holiday.daysAway(from: entry.date))
+        } else {
+            Image(systemName: "calendar")
+        }
+    }
+
+    @ViewBuilder
+    private func content(_ holiday: Holiday, days: Int) -> some View {
+        let color = Color(holiday.rgb)
         let count = days == 0 ? "আজ" : Bangla.digits(days)
-        let dateText = "\(Bangla.digits(occasion.day)) \(Bangla.gregorianMonths[occasion.month - 1])"
         switch family {
         case .accessoryInline:
-            Label(days == 0 ? "আজ \(occasion.name)" : "\(occasion.name) · \(count) দিন বাকি",
-                  systemImage: occasion.symbol)
+            Label(days == 0 ? "আজ \(holiday.short)" : "\(holiday.short) · \(count) দিন বাকি",
+                  systemImage: holiday.symbol)
         case .accessoryCorner:
             Text(count)
                 .font(.system(size: 20, weight: .bold))
                 .foregroundStyle(color)
                 .widgetAccentable()
-                .widgetLabel(days == 0 ? occasion.name : "\(occasion.short) · দিন বাকি")
+                .widgetLabel(days == 0 ? holiday.short : "\(holiday.short) · দিন বাকি")
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 0) {
-                Label(occasion.name, systemImage: occasion.symbol)
+                Label(holiday.name, systemImage: holiday.symbol)
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundStyle(color)
                     .widgetAccentable()
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
                 Text(days == 0 ? "আজ" : "আর \(count) দিন")
                     .font(.system(size: 20, weight: .bold))
-                Text(dateText)
-                    .font(.system(size: 13))
+                Text(holiday.dateText() + (holiday.moonDependent ? " · চাঁদ সাপেক্ষে" : ""))
+                    .font(.system(size: 12))
                     .opacity(0.7)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         default: // .accessoryCircular
             ZStack {
                 AccessoryWidgetBackground()
                 VStack(spacing: -2) {
-                    Image(systemName: occasion.symbol)
+                    Image(systemName: holiday.symbol)
                         .font(.system(size: 10, weight: .semibold))
                         .foregroundStyle(color)
                     Text(count)
                         .font(.system(size: days == 0 ? 16 : 20, weight: .bold))
                         .foregroundStyle(color)
                         .widgetAccentable()
-                    Text(occasion.short)
+                        .minimumScaleFactor(0.7)
+                    Text(holiday.short)
                         .font(.system(size: 9, weight: .semibold))
                         .lineLimit(1)
                         .minimumScaleFactor(0.6)
@@ -252,8 +264,8 @@ struct BanglaCountdownWidget: Widget {
                 .containerBackground(.black, for: .widget)
                 .widgetURL(AppPage.days.url)
         }
-        .configurationDisplayName("দিবস কাউন্টডাউন")
-        .description("Days until the next national day: বিজয় দিবস, একুশে, স্বাধীনতা দিবস, পহেলা বৈশাখ, পহেলা ফাল্গুন.")
+        .configurationDisplayName("ছুটি ও দিবস")
+        .description("Days until the next Bangladesh holiday or national day, including Eid and Puja.")
         .supportedFamilies([.accessoryCircular, .accessoryRectangular, .accessoryInline, .accessoryCorner])
     }
 }

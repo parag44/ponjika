@@ -46,11 +46,16 @@ enum Sun {
 
     enum Event { case sunrise, sunset }
 
-    /// The next sunrise or sunset strictly after `date`.
-    static func next(after date: Date) -> (event: Event, at: Date)? {
+    /// Sunrise and sunset for `date`'s day at `place`.
+    static func day(for date: Date, at place: Place) -> Day? {
+        day(for: date, latitude: place.latitude, longitude: place.longitude, timeZone: place.timeZone)
+    }
+
+    /// The next sunrise or sunset strictly after `date` at `place`.
+    static func next(after date: Date, at place: Place) -> (event: Event, at: Date)? {
         for offset in 0...2 {
             guard let probe = Calendar.current.date(byAdding: .day, value: offset, to: date),
-                  let day = day(for: probe) else { continue }
+                  let day = day(for: probe, at: place) else { continue }
             if day.sunrise > date { return (.sunrise, day.sunrise) }
             if day.sunset > date { return (.sunset, day.sunset) }
         }

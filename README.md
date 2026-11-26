@@ -1,12 +1,13 @@
 # পঞ্জিকা (Ponjika)
 
-**A Bangla almanac for Apple Watch.** Ponjika puts the Bangla calendar, the six seasons, sunrise and sunset, the moon's tithi, Dhaka weather and Bangladesh's national days on your watch face. Everything is in Bangla with Bengali numerals.
+**A Bangla almanac for Apple Watch.** Ponjika puts the Bangla calendar, the six seasons, sunrise and sunset, the moon's tithi, weather, air quality, rain and heat alerts, and Bangladesh's government holidays on your watch face. Everything is in Bangla with Bengali numerals.
 
 ![A Modular face set to Multicolour with Ponjika complications](docs/images/face-multicolour.png)
 
-- **7 complications** for your watch face, in circular, rectangular, inline and corner sizes
-- **A watch app** with four pages of detail. Tapping a complication opens its page.
-- **Works offline** for everything except weather. Weather needs only an internet connection: no account, no API key and no location permission.
+- **10 complications** for your watch face, in circular, rectangular, inline and corner sizes
+- **A watch app** with pages of detail. Tapping a complication opens its page.
+- **Choose your city.** Pick from Bangladesh's divisions and major districts or popular cities abroad, or search any city worldwide. Sun times, weather, air quality and alerts follow it.
+- **Works offline** for the calendar, seasons, sun, moon and holidays. Weather, air quality and alerts need an internet connection: no account, no API key and no location permission.
 
 ---
 
@@ -31,23 +32,29 @@
 | **বাংলা তারিখ** | Weekday, Bangla date and year, Gregorian date | circular · rectangular · inline · corner | আজ |
 | **ঋতু** | The current season (গ্রীষ্ম, বর্ষা, শরৎ, হেমন্ত, শীত, বসন্ত) | circular · inline · corner | আজ |
 | **দিনের অগ্রগতি** | How much of today has passed | circular · corner | আজ |
-| **দিবস কাউন্টডাউন** | Days to the next national day | circular · rectangular · inline · corner | আসন্ন দিবস |
-| **সূর্যোদয় / সূর্যাস্ত** | Next sunrise or sunset (Dhaka) | circular · rectangular · inline · corner | সূর্য ও চাঁদ |
+| **ছুটি ও দিবস** | Days to the next government holiday or national day, including Eid and Puja | circular · rectangular · inline · corner | ছুটি ও দিবস |
+| **সূর্যোদয় / সূর্যাস্ত** | Next sunrise or sunset for your city | circular · rectangular · inline · corner | সূর্য ও চাঁদ |
 | **চাঁদ** | Moon phase, tithi, শুক্ল/কৃষ্ণ পক্ষ | circular · rectangular · inline · corner | সূর্য ও চাঁদ |
-| **আবহাওয়া** | Dhaka temperature, conditions, high/low | circular · rectangular · inline · corner | আবহাওয়া |
+| **আবহাওয়া** | Temperature, conditions, high/low | circular · rectangular · inline · corner | আবহাওয়া |
+| **বায়ুর মান** | Air quality (US AQI), colour-coded from ভালো to বিপজ্জনক | circular · rectangular · inline · corner | আবহাওয়া |
+| **বৃষ্টির সতর্কতা** | When rain is likely in the next 12 hours ("বিকেল ৪টা") | circular · rectangular · inline · corner | আবহাওয়া |
+| **গরমের সতর্কতা** | Feels-like temperature with heat (গরম → চরম গরম), cold and UV warnings | circular · rectangular · inline · corner | আবহাওয়া |
 
 ![Moon and weather complications](docs/images/moon-weather.png)
 
 ![Sunrise and sunset complications](docs/images/sun.png)
 
+![Weather alerts, holidays, settings, and the new complications](docs/images/alerts-holidays-settings.png)
+
 ### The app
 
 Turn the Digital Crown to move between pages:
 
-1. **আজ**: weekday, Bangla date and year (বঙ্গাব্দ), Gregorian date, season, day progress
-2. **আবহাওয়া**: temperature, conditions, feels-like, high and low, humidity, wind, chance of rain, UV index, and the next 5 hours
+1. **আজ**: weekday, Bangla date and year (বঙ্গাব্দ), Gregorian date, season, today's holiday if any, day progress
+2. **আবহাওয়া**: temperature and conditions; **বায়ুর মান** with advice and PM2.5; **বৃষ্টির সতর্কতা**; **গরমের সতর্কতা** with UV; humidity, wind, chance of rain, UV index; and the next 5 hours
 3. **সূর্য ও চাঁদ**: sunrise, sunset, day length, moon phase, tithi, and the dates of the next পূর্ণিমা and অমাবস্যা
-4. **আসন্ন দিবস**: বিজয় দিবস, পহেলা ফাল্গুন, শহীদ দিবস, স্বাধীনতা দিবস and পহেলা বৈশাখ, with days remaining
+4. **ছুটি ও দিবস**: every government holiday and national day in the next 12 months, with days remaining. Multi-day holidays such as Eid show as a date range; moon-dependent dates are marked চাঁদ দেখা সাপেক্ষে.
+5. **সেটিংস**: choose your city
 
 ![The four app pages](docs/images/app-pages.png)
 
@@ -128,6 +135,10 @@ If the watch says the app is from an untrusted developer, on the **iPhone** go t
 
 Press the Digital Crown, find **পঞ্জিকা**, and open it. This registers the complications with watchOS and loads the first weather reading.
 
+### 8. Choose your city
+
+Turn the Digital Crown to the last page, **সেটিংস**, and tap **অবস্থান**. Pick a city from **বাংলাদেশ** or **প্রবাসে**, or type a city name in English to search worldwide. The app and all complications update to that city. The default is Dhaka.
+
 > **Free Apple ID:** apps you install this way stop opening after **7 days**. Connect the watch and press ⌘R in Xcode again to renew. Your face setup stays.
 
 ---
@@ -144,12 +155,14 @@ A layout where every slot shows something different:
 
 | Slot | Complication |
 |---|---|
-| Top Left | **আবহাওয়া** (or **দিবস কাউন্টডাউন**) |
+| Top Left | **আবহাওয়া** (or **বায়ুর মান**, **ছুটি ও দিবস**) |
 | Date | **Off** (the middle slot already shows the date) |
 | Middle | **বাংলা তারিখ** |
 | Bottom Left | **সূর্যোদয় / সূর্যাস্ত** |
 | Bottom Middle | **ঋতু** |
-| Bottom Right | **চাঁদ** (or **দিনের অগ্রগতি**) |
+| Bottom Right | **চাঁদ** (or **বৃষ্টির সতর্কতা**, **গরমের সতর্কতা**) |
+
+**Seasonal tip:** in winter, put **বায়ুর মান** in a slot (Dhaka's air is worst from November to February). In monsoon, use **বৃষ্টির সতর্কতা**; in summer, **গরমের সতর্কতা**.
 
 To show the time in Bangla too, set **Numerals → Bangla** in the face editor (Watch app → your face). Faces that offer it include Modular and Modular Duo.
 
@@ -186,7 +199,8 @@ To show the time in Bangla too, set **Numerals → Bangla** in the face editor (
 | **"Bundle identifier is not available"** | Someone else already uses that ID. Change `PONJIKA_BUNDLE_ID_PREFIX` to something more unique. |
 | **Ponjika isn't in the complications list** | Open the পঞ্জিকা app once on the watch, wait a minute, then edit the face again. If it's still missing, restart the watch. |
 | **Complications are all one colour** | Set the face's **Colour** to **Multicolour**. |
-| **Weather shows `--°`** | It needs an internet connection through the iPhone or Wi-Fi. Open the app's আবহাওয়া page to fetch now. After that it refreshes about every 30 minutes. |
+| **Weather, air or alerts show `--`** | They need an internet connection through the iPhone or Wi-Fi. Open the app's আবহাওয়া page to fetch now. After that they refresh about every 30 minutes. |
+| **Complications still show Dhaka after changing city** | The app and complications share the city through an App Group. Make sure the build includes the App Group capability (it's set in `project.yml`), then open the app and change the city again. watchOS may take a few minutes to redraw complications. |
 | **App stopped opening after a week** | Free Apple ID limit. Build and install again from Xcode. |
 
 ---
@@ -197,22 +211,31 @@ To show the time in Bangla too, set **Numerals → Bangla** in the face editor (
 |---|---|---|
 | **Bangla date** | Bangladesh's revised calendar (2019): Pohela Boishakh = 14 April, the first six months have 31 days, Falgun has 30 days in leap years. 1 Poush = 16 December, 8 Falgun = 21 February. | Exact |
 | **Seasons** | Two Bangla months per season | Exact |
-| **Sunrise / sunset** | NOAA solar equations for Dhaka (23.71° N, 90.41° E) | ±1 minute in Dhaka; elsewhere in Bangladesh a few minutes off |
+| **Sunrise / sunset** | NOAA solar equations for your chosen city, shown in that city's time zone | Within about a minute (a few minutes at high latitudes) |
 | **Moon phase & tithi** | Meeus low-precision lunar theory; tithi = each 12° of sun–moon elongation | Within ~30 minutes of published new and full moons |
 | **Weather** | [Open-Meteo](https://open-meteo.com) forecast API | Updated about every 30 minutes |
+| **Air quality** | Open-Meteo air-quality API, US AQI with Bangla bands: ভালো (0–50), মাঝারি (51–100), সংবেদনশীলদের জন্য অস্বাস্থ্যকর (101–150), অস্বাস্থ্যকর (151–200), খুব অস্বাস্থ্যকর (201–300), বিপজ্জনক (301+) | Hourly model data |
+| **Rain alert** | First hour in the next 12 with ≥40% chance or ≥0.3 mm of rain | Forecast-based |
+| **Heat alert** | Higher of current and today's peak feels-like temperature: গরম ≥35°, তীব্র গরম ≥38°, চরম গরম ≥41°; ঠান্ডা <10°, তীব্র শীত <0°. UV warnings at 6, 8 and 11+ | Forecast-based |
+| **Holidays** | Bangladesh government list: 2027 from the cabinet-approved list (2 November 2026). Fixed-date holidays every year. For years without a published list, Islamic holidays are calculated from the Umm al-Qura calendar + 1 day, which matches every official 2027 date; lunar Hindu and Buddhist holidays appear once a year's list is added. | Exact for listed years; Islamic dates otherwise depend on moon sighting |
 
 ### Privacy
 
-Ponjika doesn't collect anything. The only network request goes to Open-Meteo for weather, and it contains only Dhaka's fixed coordinates: no location, no identifiers. All other features are calculated on the watch.
+Ponjika doesn't collect anything and never uses your location. Network requests go only to Open-Meteo: weather and air quality requests contain the coordinates of the city you chose, and a city search sends the name you typed. No identifiers are sent. Everything else is calculated on the watch.
+
+### Updating the holiday list
+
+Each year's government list is in `Shared/Holidays.swift` (`official`). When Bangladesh publishes a new year's list, add an entry for that year with its lunar and moving holidays; fixed-date holidays are added automatically.
 
 ---
 
 ## Project layout
 
 ```
-Ponjika/                 Watch app: dashboard pages, weather store, app icon
+Ponjika/                 Watch app: dashboard pages, settings and city picker, app icon
 PonjikaWidgets/          Complications (WidgetKit extension)
-Shared/                  Used by both: Bangla calendar, sun, moon, weather codes
+Shared/                  Used by both: Bangla calendar, holidays, places and settings,
+                         weather/air/alerts, sun, moon
 Config/
   Signing.xcconfig                 Defaults (don't edit)
   Signing.local.xcconfig.example   Copy to Signing.local.xcconfig and fill in

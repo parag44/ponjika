@@ -23,6 +23,12 @@ targets:
       - path: Shared
     dependencies:
       - target: PonjikaWidgets
+    # App Group shared with the complications (chosen city, weather cache).
+    entitlements:
+      path: Ponjika/Ponjika.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.$(PONJIKA_BUNDLE_ID_PREFIX)
     settings:
       base:
         PRODUCT_NAME: Ponjika
@@ -38,6 +44,11 @@ targets:
     sources:
       - path: PonjikaWidgets
       - path: Shared
+    entitlements:
+      path: PonjikaWidgets/PonjikaWidgets.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.$(PONJIKA_BUNDLE_ID_PREFIX)
     info:
       path: PonjikaWidgets/Info.plist
       properties:

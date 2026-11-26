@@ -11,13 +11,17 @@
 		0E4A20F1635EB2E091E33585 /* PonjikaWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7B9E60B9FD86F1B966880505 /* PonjikaWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1DD3AE646A5169B6DC225A42 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E530B22B48406B6FDE6461 /* DashboardView.swift */; };
 		1E796B37B2523193330BDFCE /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC86310C201AB17B5A1527A /* Moon.swift */; };
+		3DA3298118FF7243272B50D6 /* Holidays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071CBAC223F4206F26F3E9B0 /* Holidays.swift */; };
+		46BABBD461F0DF765C49E6D1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC38666187FEDB79560E627D /* SettingsView.swift */; };
+		55A2E6709E800D01F98CA6D2 /* Holidays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071CBAC223F4206F26F3E9B0 /* Holidays.swift */; };
 		56EF2ACAD8013A4D77DB7F3B /* SunWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73794244937CBAFB82A4B33D /* SunWidgets.swift */; };
 		57BFE28187D944B14AF653F1 /* MoonWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCA8DA4068A23B75062175 /* MoonWidgets.swift */; };
-		58A9C7BF924594AF494CDFDD /* WeatherWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6AEA45DA4C6AA9B611F08 /* WeatherWidgets.swift */; };
+		5B2654D50D4612A8E48B4F4C /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93142946C07BDDC0A7A4F519 /* AppModel.swift */; };
 		65F39C35DCBDF357AA7A39E0 /* Bangla.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C1F071671BD2AAD4A5D85 /* Bangla.swift */; };
 		7C96F0AA1B764D3B19BB6583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF462E8CA74B2FF4E5417A5C /* Assets.xcassets */; };
 		81C1CC8806704203E25EEE8B /* Bangla.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C1F071671BD2AAD4A5D85 /* Bangla.swift */; };
 		98AAD00B322000C257461631 /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC86310C201AB17B5A1527A /* Moon.swift */; };
+		9A437B8BEC308F91DE84FFFF /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15925FF91BC29C6199BB6F6C /* Place.swift */; };
 		A4AB6C8DB0A531A0E2134AD8 /* MoonDisc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105A8FB7733E01F2632ACB4 /* MoonDisc.swift */; };
 		A4E0AF3D52751A1400C45389 /* PonjikaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C77B80405B5474C4B0B400 /* PonjikaApp.swift */; };
 		A7555EDAD5ADC972D63EE68A /* WeatherCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A11E945475CA076D99166A /* WeatherCode.swift */; };
@@ -25,10 +29,13 @@
 		B2442FC5A4EB72190B2A76B6 /* BanglaWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B879183336C6F404CBC294A /* BanglaWidgets.swift */; };
 		B4B2517E6C8736956B07C131 /* WeatherCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A11E945475CA076D99166A /* WeatherCode.swift */; };
 		B63243B5D9D0C46CE8175449 /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6893CA5BC6D2E3556AF187 /* Sun.swift */; };
+		BE0EF78D8B772F271DF4A1C9 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15925FF91BC29C6199BB6F6C /* Place.swift */; };
 		BF110D11F3ADE832BE0B74B1 /* PonjikaWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B010F5F965A5F5C1C96BC4 /* PonjikaWidgets.swift */; };
-		C6CB0C7F6271D9713B5834F5 /* WeatherStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B38EA6A53676D773C9BA0C /* WeatherStore.swift */; };
 		CC92DB321C766499A367A53D /* DayClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4CFB5F740BF2025E763446 /* DayClock.swift */; };
 		D4F657FC573CF44112D4A558 /* DayClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4CFB5F740BF2025E763446 /* DayClock.swift */; };
+		DE736A9E29BB25FE2B325791 /* ConditionsWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30484EC9158C2FBBD2C2657 /* ConditionsWidgets.swift */; };
+		F2B5753199CC8297564EF09A /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BBA4D853763CEC8E2A286 /* Conditions.swift */; };
+		F696F2ECBD82BB2FEF3DCEA9 /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BBA4D853763CEC8E2A286 /* Conditions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,12 +63,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		04B38EA6A53676D773C9BA0C /* WeatherStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStore.swift; sourceTree = "<group>"; };
+		071CBAC223F4206F26F3E9B0 /* Holidays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holidays.swift; sourceTree = "<group>"; };
+		15925FF91BC29C6199BB6F6C /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		1B2821A1220A663FA9A9F088 /* PonjikaWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PonjikaWidgets.entitlements; sourceTree = "<group>"; };
 		1DC86310C201AB17B5A1527A /* Moon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.swift; sourceTree = "<group>"; };
 		27E530B22B48406B6FDE6461 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		2D4CFB5F740BF2025E763446 /* DayClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayClock.swift; sourceTree = "<group>"; };
 		4D3F8E21062231B0D30DDEDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4D6893CA5BC6D2E3556AF187 /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
+		521DB1AB7534B202F4089CCE /* Ponjika.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ponjika.entitlements; sourceTree = "<group>"; };
 		66C77B80405B5474C4B0B400 /* PonjikaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonjikaApp.swift; sourceTree = "<group>"; };
 		7105A8FB7733E01F2632ACB4 /* MoonDisc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonDisc.swift; sourceTree = "<group>"; };
 		73794244937CBAFB82A4B33D /* SunWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunWidgets.swift; sourceTree = "<group>"; };
@@ -69,9 +79,12 @@
 		7B9E60B9FD86F1B966880505 /* PonjikaWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PonjikaWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A11E945475CA076D99166A /* WeatherCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCode.swift; sourceTree = "<group>"; };
 		8BD67A24DE2618FEE0264C89 /* Ponjika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ponjika.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93142946C07BDDC0A7A4F519 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		9B879183336C6F404CBC294A /* BanglaWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanglaWidgets.swift; sourceTree = "<group>"; };
-		9BE6AEA45DA4C6AA9B611F08 /* WeatherWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherWidgets.swift; sourceTree = "<group>"; };
+		A95BBA4D853763CEC8E2A286 /* Conditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conditions.swift; sourceTree = "<group>"; };
 		AF462E8CA74B2FF4E5417A5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B30484EC9158C2FBBD2C2657 /* ConditionsWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsWidgets.swift; sourceTree = "<group>"; };
+		BC38666187FEDB79560E627D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D1B010F5F965A5F5C1C96BC4 /* PonjikaWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonjikaWidgets.swift; sourceTree = "<group>"; };
 		F4307755C0135DE2A25618BC /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
 		F9DCA8DA4068A23B75062175 /* MoonWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonWidgets.swift; sourceTree = "<group>"; };
@@ -81,10 +94,12 @@
 		00BA090B425FE621AFA07EC3 /* Ponjika */ = {
 			isa = PBXGroup;
 			children = (
+				93142946C07BDDC0A7A4F519 /* AppModel.swift */,
 				AF462E8CA74B2FF4E5417A5C /* Assets.xcassets */,
 				27E530B22B48406B6FDE6461 /* DashboardView.swift */,
+				521DB1AB7534B202F4089CCE /* Ponjika.entitlements */,
 				66C77B80405B5474C4B0B400 /* PonjikaApp.swift */,
-				04B38EA6A53676D773C9BA0C /* WeatherStore.swift */,
+				BC38666187FEDB79560E627D /* SettingsView.swift */,
 			);
 			path = Ponjika;
 			sourceTree = "<group>";
@@ -101,11 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				9B879183336C6F404CBC294A /* BanglaWidgets.swift */,
+				B30484EC9158C2FBBD2C2657 /* ConditionsWidgets.swift */,
 				4D3F8E21062231B0D30DDEDF /* Info.plist */,
 				F9DCA8DA4068A23B75062175 /* MoonWidgets.swift */,
+				1B2821A1220A663FA9A9F088 /* PonjikaWidgets.entitlements */,
 				D1B010F5F965A5F5C1C96BC4 /* PonjikaWidgets.swift */,
 				73794244937CBAFB82A4B33D /* SunWidgets.swift */,
-				9BE6AEA45DA4C6AA9B611F08 /* WeatherWidgets.swift */,
 			);
 			path = PonjikaWidgets;
 			sourceTree = "<group>";
@@ -123,9 +139,12 @@
 			isa = PBXGroup;
 			children = (
 				7B9C1F071671BD2AAD4A5D85 /* Bangla.swift */,
+				A95BBA4D853763CEC8E2A286 /* Conditions.swift */,
 				2D4CFB5F740BF2025E763446 /* DayClock.swift */,
+				071CBAC223F4206F26F3E9B0 /* Holidays.swift */,
 				1DC86310C201AB17B5A1527A /* Moon.swift */,
 				7105A8FB7733E01F2632ACB4 /* MoonDisc.swift */,
+				15925FF91BC29C6199BB6F6C /* Place.swift */,
 				4D6893CA5BC6D2E3556AF187 /* Sun.swift */,
 				83A11E945475CA076D99166A /* WeatherCode.swift */,
 			);
@@ -240,15 +259,18 @@
 			files = (
 				65F39C35DCBDF357AA7A39E0 /* Bangla.swift in Sources */,
 				B2442FC5A4EB72190B2A76B6 /* BanglaWidgets.swift in Sources */,
+				F696F2ECBD82BB2FEF3DCEA9 /* Conditions.swift in Sources */,
+				DE736A9E29BB25FE2B325791 /* ConditionsWidgets.swift in Sources */,
 				D4F657FC573CF44112D4A558 /* DayClock.swift in Sources */,
+				3DA3298118FF7243272B50D6 /* Holidays.swift in Sources */,
 				1E796B37B2523193330BDFCE /* Moon.swift in Sources */,
 				A4AB6C8DB0A531A0E2134AD8 /* MoonDisc.swift in Sources */,
 				57BFE28187D944B14AF653F1 /* MoonWidgets.swift in Sources */,
+				9A437B8BEC308F91DE84FFFF /* Place.swift in Sources */,
 				BF110D11F3ADE832BE0B74B1 /* PonjikaWidgets.swift in Sources */,
 				0D567C4A1B397B03E4F76343 /* Sun.swift in Sources */,
 				56EF2ACAD8013A4D77DB7F3B /* SunWidgets.swift in Sources */,
 				B4B2517E6C8736956B07C131 /* WeatherCode.swift in Sources */,
-				58A9C7BF924594AF494CDFDD /* WeatherWidgets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,15 +278,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B2654D50D4612A8E48B4F4C /* AppModel.swift in Sources */,
 				81C1CC8806704203E25EEE8B /* Bangla.swift in Sources */,
+				F2B5753199CC8297564EF09A /* Conditions.swift in Sources */,
 				1DD3AE646A5169B6DC225A42 /* DashboardView.swift in Sources */,
 				CC92DB321C766499A367A53D /* DayClock.swift in Sources */,
+				55A2E6709E800D01F98CA6D2 /* Holidays.swift in Sources */,
 				98AAD00B322000C257461631 /* Moon.swift in Sources */,
 				ACADC46579BBA5E182D4F9A0 /* MoonDisc.swift in Sources */,
+				BE0EF78D8B772F271DF4A1C9 /* Place.swift in Sources */,
 				A4E0AF3D52751A1400C45389 /* PonjikaApp.swift in Sources */,
+				46BABBD461F0DF765C49E6D1 /* SettingsView.swift in Sources */,
 				B63243B5D9D0C46CE8175449 /* Sun.swift in Sources */,
 				A7555EDAD5ADC972D63EE68A /* WeatherCode.swift in Sources */,
-				C6CB0C7F6271D9713B5834F5 /* WeatherStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +309,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Ponjika/Ponjika.entitlements;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "পঞ্জিকা";
 				INFOPLIST_KEY_WKApplication = YES;
@@ -365,6 +392,7 @@
 		336172D0019E224B0AB61C93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PonjikaWidgets/PonjikaWidgets.entitlements;
 				INFOPLIST_FILE = PonjikaWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -382,6 +410,7 @@
 		C9C94169DC87C12CAB0EF80B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PonjikaWidgets/PonjikaWidgets.entitlements;
 				INFOPLIST_FILE = PonjikaWidgets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,6 +489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Ponjika/Ponjika.entitlements;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "পঞ্জিকা";
 				INFOPLIST_KEY_WKApplication = YES;
