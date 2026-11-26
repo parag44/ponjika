@@ -1,5 +1,5 @@
-// Copy this file to Config/Signing.local.xcconfig and fill in your values.
-// That file is git-ignored, so your Team ID stays on your Mac.
+// Optional. Copy to Config/Signing.local.xcconfig (git-ignored) only if you
+// want a specific bundle ID or want to set your Team without using Xcode.
 
 PONJIKA_BUNDLE_ID_PREFIX = com.yourname.ponjika
 DEVELOPMENT_TEAM = ABCDE12345

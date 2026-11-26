@@ -1,12 +1,12 @@
 // Signing settings for Ponjika.
 //
-// Don't edit this file. Create Config/Signing.local.xcconfig (git-ignored) with
-// your own values; copy Config/Signing.local.xcconfig.example to get started.
+// Most people don't need to touch anything here: pick your Team in Xcode
+// (target → Signing & Capabilities) and the bundle ID is built from it, so
+// it's unique to you — e.g. com.ponjika.ABCDE12345.
+//
+// To use a bundle ID of your own instead, create Config/Signing.local.xcconfig
+// (git-ignored) from Config/Signing.local.xcconfig.example.
 
-// Must be unique to you, e.g. com.yourname.ponjika
-PONJIKA_BUNDLE_ID_PREFIX = com.example.ponjika
-
-// Your Apple Developer Team ID (Xcode → Settings → Accounts → your team).
-DEVELOPMENT_TEAM =
+PONJIKA_BUNDLE_ID_PREFIX = com.ponjika.$(DEVELOPMENT_TEAM)
 
 #include? "Signing.local.xcconfig"

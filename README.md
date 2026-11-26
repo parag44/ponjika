@@ -81,38 +81,32 @@ Apple Watch apps can only be installed from the App Store or built from source w
 
 ## Install on your Apple Watch
 
+No Terminal needed: everything below is done in Xcode and on your devices.
+
 ### 1. Get the code
+
+On the GitHub page, click the green **Code** button → **Download ZIP**, then double-click the ZIP to unzip it.
+
+Or, if you use git:
 
 ```bash
 git clone https://github.com/parag44/ponjika.git
-cd ponjika
 ```
-
-Or download the ZIP from GitHub and unzip it.
 
 ### 2. Add your Apple ID to Xcode
 
 Open **Xcode → Settings → Accounts**, click **+**, and sign in with your Apple ID. Xcode creates a free "Personal Team" for you.
 
-### 3. Set your signing details
+### 3. Open the project and choose your Team
 
-Every app on a watch needs a unique bundle ID and your team. Copy the example file:
+1. Double-click **`Ponjika.xcodeproj`** to open it in Xcode.
+2. In the left sidebar, click the blue **Ponjika** project icon at the top.
+3. Under **TARGETS**, select **Ponjika** → open the **Signing & Capabilities** tab → set **Team** to your Apple ID's team (for example "Your Name (Personal Team)").
+4. Select **PonjikaWidgets** and choose the **same Team**.
 
-```bash
-cp Config/Signing.local.xcconfig.example Config/Signing.local.xcconfig
-```
+That's it. The bundle ID is created automatically from your Team (for example `com.ponjika.ABCDE12345`), so it's unique to you and never clashes with anyone else's.
 
-Then edit `Config/Signing.local.xcconfig`:
-
-```
-PONJIKA_BUNDLE_ID_PREFIX = com.yourname.ponjika
-DEVELOPMENT_TEAM = ABCDE12345
-```
-
-- **Bundle ID prefix:** anything unique to you, in reverse-domain style, for example `com.rahim.ponjika`. Use only letters, numbers, dots and hyphens.
-- **Team ID:** in **Xcode → Settings → Accounts**, select your team. The 10-character ID is shown there. You can also find it in the Apple Developer website's Membership section.
-
-This file is git-ignored, so your details stay on your Mac.
+> **Want your own bundle ID instead?** Copy `Config/Signing.local.xcconfig.example` to `Config/Signing.local.xcconfig` and set `PONJIKA_BUNDLE_ID_PREFIX` (and optionally `DEVELOPMENT_TEAM`). That file is git-ignored. Most people don't need this.
 
 ### 4. Turn on Developer Mode
 
@@ -122,14 +116,13 @@ The iPhone and the watch both need Developer Mode before they'll run apps you bu
 2. On the **iPhone**: **Settings → Privacy & Security → Developer Mode** → on. Restart when asked.
 3. On the **watch**: **Settings → Privacy & Security → Developer Mode** → on. Restart when asked.
 
-If Developer Mode doesn't appear on the watch, open the project in Xcode with the watch nearby and unlocked (step 5). It shows up after Xcode has seen the watch.
+If Developer Mode doesn't appear on the watch, keep Xcode open with the watch nearby and unlocked, and choose it as the run destination (step 5). It shows up after Xcode has seen the watch.
 
 ### 5. Build and install
 
-1. Open **`Ponjika.xcodeproj`** in Xcode.
-2. In the toolbar, choose the **Ponjika** scheme and your **Apple Watch** as the run destination. The watch is listed under your iPhone.
-3. **Recommended:** **Product → Scheme → Edit Scheme… → Run → Info**, untick **Debug executable**. This skips a very slow one-time debug-symbol copy from the watch, which can take 30+ minutes.
-4. Press **⌘R**.
+1. In Xcode's toolbar, choose the **Ponjika** scheme and your **Apple Watch** as the run destination. The watch is listed under your iPhone.
+2. **Recommended:** **Product → Scheme → Edit Scheme… → Run → Info**, untick **Debug executable**. This skips a very slow one-time debug-symbol copy from the watch, which can take 30+ minutes.
+3. Press **⌘R**.
 
 Keep the watch **unlocked, on its charger and near the iPhone**, with the iPhone and Mac on the **same Wi-Fi**. The first install takes a few minutes.
 
@@ -201,8 +194,9 @@ To show the time in Bangla too, set **Numerals → Bangla** in the face editor (
 |---|---|
 | **Stuck on "Copying OS library symbols (0%)"** | Untick **Debug executable** in the scheme (step 5.3) and press ⌘R again, or wait it out (it only happens once per watchOS version). |
 | **Watch doesn't appear as a run destination** | Unlock the iPhone and watch, put both on the same Wi-Fi as the Mac, and check **Window → Devices and Simulators**. Make sure Developer Mode is on (step 4). |
-| **"No Accounts" or "No profiles for … were found"** | Add your Apple ID in **Xcode → Settings → Accounts**, check `DEVELOPMENT_TEAM` in `Config/Signing.local.xcconfig`, then build once from Xcode (not the command line). |
-| **"Bundle identifier is not available"** | Someone else already uses that ID. Change `PONJIKA_BUNDLE_ID_PREFIX` to something more unique. |
+| **"Signing requires a development team"** | Choose your Team for **both** the Ponjika and PonjikaWidgets targets (step 3). |
+| **"No Accounts" or "No profiles for … were found"** | Add your Apple ID in **Xcode → Settings → Accounts**, pick the Team again (step 3), then build from Xcode (not the command line). |
+| **"Bundle identifier is not available"** | Only happens with a custom `Signing.local.xcconfig`: that ID belongs to someone else. Pick a more unique `PONJIKA_BUNDLE_ID_PREFIX`, or delete the file to use the automatic one. |
 | **Ponjika isn't in the complications list** | Open the পঞ্জিকা app once on the watch, wait a minute, then edit the face again. If it's still missing, restart the watch. |
 | **Complications are all one colour** | Set the face's **Colour** to **Multicolour**. |
 | **Weather, air or alerts show `--`** | They need an internet connection through the iPhone or Wi-Fi. Open the app's আবহাওয়া page to fetch now. After that they refresh about every 30 minutes. |
@@ -243,8 +237,8 @@ PonjikaWidgets/          Complications (WidgetKit extension)
 Shared/                  Used by both: Bangla calendar, holidays, places and settings,
                          weather/air/alerts, sun, moon
 Config/
-  Signing.xcconfig                 Defaults (don't edit)
-  Signing.local.xcconfig.example   Copy to Signing.local.xcconfig and fill in
+  Signing.xcconfig                 Bundle ID built from your Team (don't edit)
+  Signing.local.xcconfig.example   Optional: copy to Signing.local.xcconfig for a custom ID
 docs/images/             README screenshots
 project.yml              XcodeGen spec that generates Ponjika.xcodeproj
 ```
@@ -264,4 +258,4 @@ xcodebuild -project Ponjika.xcodeproj -scheme Ponjika -configuration Release -de
 
 If `xcodebuild` says it requires Xcode, point it at Xcode with `sudo xcode-select -s /Applications/Xcode.app`.
 
-Build once from Xcode first, so it can create the signing profiles for your bundle ID.
+Choose your Team and build once from Xcode first, so it can create the signing profiles for your bundle ID.
