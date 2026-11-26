@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D567C4A1B397B03E4F76343 /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6893CA5BC6D2E3556AF187 /* Sun.swift */; };
+		0E4A20F1635EB2E091E33585 /* PonjikaWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7B9E60B9FD86F1B966880505 /* PonjikaWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1DD3AE646A5169B6DC225A42 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E530B22B48406B6FDE6461 /* DashboardView.swift */; };
+		1E796B37B2523193330BDFCE /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC86310C201AB17B5A1527A /* Moon.swift */; };
+		56EF2ACAD8013A4D77DB7F3B /* SunWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73794244937CBAFB82A4B33D /* SunWidgets.swift */; };
+		57BFE28187D944B14AF653F1 /* MoonWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DCA8DA4068A23B75062175 /* MoonWidgets.swift */; };
+		58A9C7BF924594AF494CDFDD /* WeatherWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6AEA45DA4C6AA9B611F08 /* WeatherWidgets.swift */; };
+		65F39C35DCBDF357AA7A39E0 /* Bangla.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C1F071671BD2AAD4A5D85 /* Bangla.swift */; };
+		7C96F0AA1B764D3B19BB6583 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF462E8CA74B2FF4E5417A5C /* Assets.xcassets */; };
+		81C1CC8806704203E25EEE8B /* Bangla.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C1F071671BD2AAD4A5D85 /* Bangla.swift */; };
+		98AAD00B322000C257461631 /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC86310C201AB17B5A1527A /* Moon.swift */; };
+		A4AB6C8DB0A531A0E2134AD8 /* MoonDisc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105A8FB7733E01F2632ACB4 /* MoonDisc.swift */; };
+		A4E0AF3D52751A1400C45389 /* PonjikaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C77B80405B5474C4B0B400 /* PonjikaApp.swift */; };
+		A7555EDAD5ADC972D63EE68A /* WeatherCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A11E945475CA076D99166A /* WeatherCode.swift */; };
+		ACADC46579BBA5E182D4F9A0 /* MoonDisc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105A8FB7733E01F2632ACB4 /* MoonDisc.swift */; };
+		B2442FC5A4EB72190B2A76B6 /* BanglaWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B879183336C6F404CBC294A /* BanglaWidgets.swift */; };
+		B4B2517E6C8736956B07C131 /* WeatherCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A11E945475CA076D99166A /* WeatherCode.swift */; };
+		B63243B5D9D0C46CE8175449 /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6893CA5BC6D2E3556AF187 /* Sun.swift */; };
+		BF110D11F3ADE832BE0B74B1 /* PonjikaWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B010F5F965A5F5C1C96BC4 /* PonjikaWidgets.swift */; };
+		C6CB0C7F6271D9713B5834F5 /* WeatherStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B38EA6A53676D773C9BA0C /* WeatherStore.swift */; };
+		CC92DB321C766499A367A53D /* DayClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4CFB5F740BF2025E763446 /* DayClock.swift */; };
+		D4F657FC573CF44112D4A558 /* DayClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4CFB5F740BF2025E763446 /* DayClock.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		80045F4BC08B238DF6C45E61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 903C97966EBDE15DA4B3F2F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61CC50E396253F627DD9D275;
+			remoteInfo = PonjikaWidgets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		882B7959BF99940D7E2A3C51 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0E4A20F1635EB2E091E33585 /* PonjikaWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		04B38EA6A53676D773C9BA0C /* WeatherStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStore.swift; sourceTree = "<group>"; };
+		1DC86310C201AB17B5A1527A /* Moon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.swift; sourceTree = "<group>"; };
+		27E530B22B48406B6FDE6461 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		2D4CFB5F740BF2025E763446 /* DayClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayClock.swift; sourceTree = "<group>"; };
+		4D3F8E21062231B0D30DDEDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4D6893CA5BC6D2E3556AF187 /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
+		66C77B80405B5474C4B0B400 /* PonjikaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonjikaApp.swift; sourceTree = "<group>"; };
+		7105A8FB7733E01F2632ACB4 /* MoonDisc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonDisc.swift; sourceTree = "<group>"; };
+		73794244937CBAFB82A4B33D /* SunWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunWidgets.swift; sourceTree = "<group>"; };
+		7B9C1F071671BD2AAD4A5D85 /* Bangla.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bangla.swift; sourceTree = "<group>"; };
+		7B9E60B9FD86F1B966880505 /* PonjikaWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PonjikaWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		83A11E945475CA076D99166A /* WeatherCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCode.swift; sourceTree = "<group>"; };
+		8BD67A24DE2618FEE0264C89 /* Ponjika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ponjika.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B879183336C6F404CBC294A /* BanglaWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanglaWidgets.swift; sourceTree = "<group>"; };
+		9BE6AEA45DA4C6AA9B611F08 /* WeatherWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherWidgets.swift; sourceTree = "<group>"; };
+		AF462E8CA74B2FF4E5417A5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D1B010F5F965A5F5C1C96BC4 /* PonjikaWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonjikaWidgets.swift; sourceTree = "<group>"; };
+		F4307755C0135DE2A25618BC /* Signing.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Signing.xcconfig; sourceTree = "<group>"; };
+		F9DCA8DA4068A23B75062175 /* MoonWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonWidgets.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		00BA090B425FE621AFA07EC3 /* Ponjika */ = {
+			isa = PBXGroup;
+			children = (
+				AF462E8CA74B2FF4E5417A5C /* Assets.xcassets */,
+				27E530B22B48406B6FDE6461 /* DashboardView.swift */,
+				66C77B80405B5474C4B0B400 /* PonjikaApp.swift */,
+				04B38EA6A53676D773C9BA0C /* WeatherStore.swift */,
+			);
+			path = Ponjika;
+			sourceTree = "<group>";
+		};
+		0243086E4CA0D5FD44AF3884 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F4307755C0135DE2A25618BC /* Signing.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		453C42E63741F88D9F84126D /* PonjikaWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				9B879183336C6F404CBC294A /* BanglaWidgets.swift */,
+				4D3F8E21062231B0D30DDEDF /* Info.plist */,
+				F9DCA8DA4068A23B75062175 /* MoonWidgets.swift */,
+				D1B010F5F965A5F5C1C96BC4 /* PonjikaWidgets.swift */,
+				73794244937CBAFB82A4B33D /* SunWidgets.swift */,
+				9BE6AEA45DA4C6AA9B611F08 /* WeatherWidgets.swift */,
+			);
+			path = PonjikaWidgets;
+			sourceTree = "<group>";
+		};
+		9D2470CF66C63ED8C1D50476 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BD67A24DE2618FEE0264C89 /* Ponjika.app */,
+				7B9E60B9FD86F1B966880505 /* PonjikaWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9C12C4749F9FE6836697E8B /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				7B9C1F071671BD2AAD4A5D85 /* Bangla.swift */,
+				2D4CFB5F740BF2025E763446 /* DayClock.swift */,
+				1DC86310C201AB17B5A1527A /* Moon.swift */,
+				7105A8FB7733E01F2632ACB4 /* MoonDisc.swift */,
+				4D6893CA5BC6D2E3556AF187 /* Sun.swift */,
+				83A11E945475CA076D99166A /* WeatherCode.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		E43B6B22AFEC2298BF59D7EF = {
+			isa = PBXGroup;
+			children = (
+				0243086E4CA0D5FD44AF3884 /* Config */,
+				00BA090B425FE621AFA07EC3 /* Ponjika */,
+				453C42E63741F88D9F84126D /* PonjikaWidgets */,
+				C9C12C4749F9FE6836697E8B /* Shared */,
+				9D2470CF66C63ED8C1D50476 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		61CC50E396253F627DD9D275 /* PonjikaWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1118BD7F8B587ACD53BE088 /* Build configuration list for PBXNativeTarget "PonjikaWidgets" */;
+			buildPhases = (
+				18A1FE573E09E16CD91A8602 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PonjikaWidgets;
+			packageProductDependencies = (
+			);
+			productName = PonjikaWidgets;
+			productReference = 7B9E60B9FD86F1B966880505 /* PonjikaWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		909A2AA10CBE26D3993474AF /* Ponjika */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 668A6121F18E21926935618C /* Build configuration list for PBXNativeTarget "Ponjika" */;
+			buildPhases = (
+				71D8233D5833EB05FAA5252A /* Sources */,
+				3352E20110783A0C788D9890 /* Resources */,
+				882B7959BF99940D7E2A3C51 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D591E9F76163AC6ABB2BFA10 /* PBXTargetDependency */,
+			);
+			name = Ponjika;
+			packageProductDependencies = (
+			);
+			productName = Ponjika;
+			productReference = 8BD67A24DE2618FEE0264C89 /* Ponjika.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		903C97966EBDE15DA4B3F2F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					61CC50E396253F627DD9D275 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					909A2AA10CBE26D3993474AF = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A0060068323CF89BE6407114 /* Build configuration list for PBXProject "Ponjika" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E43B6B22AFEC2298BF59D7EF;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9D2470CF66C63ED8C1D50476 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				909A2AA10CBE26D3993474AF /* Ponjika */,
+				61CC50E396253F627DD9D275 /* PonjikaWidgets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3352E20110783A0C788D9890 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C96F0AA1B764D3B19BB6583 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18A1FE573E09E16CD91A8602 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65F39C35DCBDF357AA7A39E0 /* Bangla.swift in Sources */,
+				B2442FC5A4EB72190B2A76B6 /* BanglaWidgets.swift in Sources */,
+				D4F657FC573CF44112D4A558 /* DayClock.swift in Sources */,
+				1E796B37B2523193330BDFCE /* Moon.swift in Sources */,
+				A4AB6C8DB0A531A0E2134AD8 /* MoonDisc.swift in Sources */,
+				57BFE28187D944B14AF653F1 /* MoonWidgets.swift in Sources */,
+				BF110D11F3ADE832BE0B74B1 /* PonjikaWidgets.swift in Sources */,
+				0D567C4A1B397B03E4F76343 /* Sun.swift in Sources */,
+				56EF2ACAD8013A4D77DB7F3B /* SunWidgets.swift in Sources */,
+				B4B2517E6C8736956B07C131 /* WeatherCode.swift in Sources */,
+				58A9C7BF924594AF494CDFDD /* WeatherWidgets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71D8233D5833EB05FAA5252A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81C1CC8806704203E25EEE8B /* Bangla.swift in Sources */,
+				1DD3AE646A5169B6DC225A42 /* DashboardView.swift in Sources */,
+				CC92DB321C766499A367A53D /* DayClock.swift in Sources */,
+				98AAD00B322000C257461631 /* Moon.swift in Sources */,
+				ACADC46579BBA5E182D4F9A0 /* MoonDisc.swift in Sources */,
+				A4E0AF3D52751A1400C45389 /* PonjikaApp.swift in Sources */,
+				B63243B5D9D0C46CE8175449 /* Sun.swift in Sources */,
+				A7555EDAD5ADC972D63EE68A /* WeatherCode.swift in Sources */,
+				C6CB0C7F6271D9713B5834F5 /* WeatherStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D591E9F76163AC6ABB2BFA10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61CC50E396253F627DD9D275 /* PonjikaWidgets */;
+			targetProxy = 80045F4BC08B238DF6C45E61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		254B74A006B9B90CF57FABCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "পঞ্জিকা";
+				INFOPLIST_KEY_WKApplication = YES;
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PONJIKA_BUNDLE_ID_PREFIX)";
+				PRODUCT_NAME = Ponjika;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		2F4BDEFA072E074F6C9CB6DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4307755C0135DE2A25618BC /* Signing.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		336172D0019E224B0AB61C93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PonjikaWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PONJIKA_BUNDLE_ID_PREFIX).widgets";
+				PRODUCT_NAME = PonjikaWidgets;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		C9C94169DC87C12CAB0EF80B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PonjikaWidgets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PONJIKA_BUNDLE_ID_PREFIX).widgets";
+				PRODUCT_NAME = PonjikaWidgets;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		CAF3EEC9756171D56F0DC8ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4307755C0135DE2A25618BC /* Signing.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		CC0A37C70E0B7BC112A50002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "পঞ্জিকা";
+				INFOPLIST_KEY_WKApplication = YES;
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(PONJIKA_BUNDLE_ID_PREFIX)";
+				PRODUCT_NAME = Ponjika;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		668A6121F18E21926935618C /* Build configuration list for PBXNativeTarget "Ponjika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				254B74A006B9B90CF57FABCB /* Debug */,
+				CC0A37C70E0B7BC112A50002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A0060068323CF89BE6407114 /* Build configuration list for PBXProject "Ponjika" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F4BDEFA072E074F6C9CB6DF /* Debug */,
+				CAF3EEC9756171D56F0DC8ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D1118BD7F8B587ACD53BE088 /* Build configuration list for PBXNativeTarget "PonjikaWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				336172D0019E224B0AB61C93 /* Debug */,
+				C9C94169DC87C12CAB0EF80B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 903C97966EBDE15DA4B3F2F9 /* Project object */;
+}

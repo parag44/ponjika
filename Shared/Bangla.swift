@@ -1,0 +1,165 @@
+import Foundation
+
+/// Bangla (Bengali) calendar and text helpers, following Bangladesh's revised
+/// calendar (2019): Pohela Boishakh is 14 April, the first six months have 31
+/// days, Falgun has 30 days in Gregorian leap years (29 otherwise), and the
+/// rest have 30. That puts 1 Poush on 16 December and 8 Falgun on 21 February.
+struct BanglaDate: Equatable {
+    let day: Int     // 1...31
+    let month: Int   // 0 = Boishakh ... 11 = Chaitra
+    let year: Int    // Bangabda, e.g. 1433
+
+    init(day: Int, month: Int, year: Int) {
+        self.day = day; self.month = month; self.year = year
+    }
+
+    init(_ date: Date, calendar: Calendar = .current) {
+        var gregorian = Calendar(identifier: .gregorian)
+        gregorian.timeZone = calendar.timeZone
+        let parts = gregorian.dateComponents([.year, .month, .day], from: date)
+        let gYear = parts.year!, gMonth = parts.month!, gDay = parts.day!
+
+        // Bangla year starts on 14 April.
+        let startsThisYear = (gMonth, gDay) >= (4, 14)
+        let newYearGregorianYear = startsThisYear ? gYear : gYear - 1
+        let newYear = gregorian.date(from: DateComponents(year: newYearGregorianYear, month: 4, day: 14))!
+        let today = gregorian.date(from: DateComponents(year: gYear, month: gMonth, day: gDay))!
+        var offset = gregorian.dateComponents([.day], from: newYear, to: today).day!
+
+        // Falgun falls in Feb–Mar of the following Gregorian year.
+        let falgunYear = newYearGregorianYear + 1
+        let isLeap = (falgunYear % 4 == 0 && falgunYear % 100 != 0) || falgunYear % 400 == 0
+        let lengths = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, isLeap ? 30 : 29, 30]
+
+        var month = 0
+        while month < 11 && offset >= lengths[month] {
+            offset -= lengths[month]
+            month += 1
+        }
+        self.init(day: offset + 1, month: month, year: newYearGregorianYear - 593)
+    }
+
+    var monthName: String { Bangla.months[month] }
+    var season: Bangla.Season { Bangla.Season.allCases[month / 2] }
+}
+
+enum Bangla {
+    static let months = ["বৈশাখ", "জ্যৈষ্ঠ", "আষাঢ়", "শ্রাবণ", "ভাদ্র", "আশ্বিন",
+                         "কার্তিক", "অগ্রহায়ণ", "পৌষ", "মাঘ", "ফাল্গুন", "চৈত্র"]
+
+    /// Sunday first, matching Calendar's weekday numbering (1 = Sunday).
+    static let weekdays = ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"]
+    static let weekdaysShort = ["রবি", "সোম", "মঙ্গল", "বুধ", "বৃহঃ", "শুক্র", "শনি"]
+
+    static let gregorianMonths = ["জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন",
+                                  "জুলাই", "আগস্ট", "সেপ্টেম্বর", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"]
+
+    enum Season: CaseIterable {
+        case grishmo, borsha, shorot, hemonto, sheet, boshonto
+
+        var name: String {
+            switch self {
+            case .grishmo: "গ্রীষ্ম"
+            case .borsha: "বর্ষা"
+            case .shorot: "শরৎ"
+            case .hemonto: "হেমন্ত"
+            case .sheet: "শীত"
+            case .boshonto: "বসন্ত"
+            }
+        }
+
+        /// Season colour (RGB): summer orange, monsoon blue, autumn sky,
+        /// late-autumn harvest gold, winter ice, spring pink.
+        var rgb: (Double, Double, Double) {
+            switch self {
+            case .grishmo: (1.0, 0.55, 0.15)
+            case .borsha: (0.3, 0.6, 1.0)
+            case .shorot: (0.45, 0.85, 1.0)
+            case .hemonto: (1.0, 0.8, 0.2)
+            case .sheet: (0.75, 0.9, 1.0)
+            case .boshonto: (1.0, 0.45, 0.7)
+            }
+        }
+
+        var symbol: String {
+            switch self {
+            case .grishmo: "sun.max.fill"
+            case .borsha: "cloud.rain.fill"
+            case .shorot: "cloud.sun.fill"
+            case .hemonto: "leaf.fill"
+            case .sheet: "snowflake"
+            case .boshonto: "camera.macro"
+            }
+        }
+    }
+
+    /// "1433" -> "১৪৩৩"
+    static func digits(_ value: Int) -> String {
+        digits(String(value))
+    }
+
+    static func digits(_ text: String) -> String {
+        let bengali: [Character] = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"]
+        return String(text.map { c in c.wholeNumberValue.map { bengali[$0] } ?? c })
+    }
+
+    static func weekday(_ date: Date, short: Bool = false, calendar: Calendar = .current) -> String {
+        let index = calendar.component(.weekday, from: date) - 1
+        return short ? weekdaysShort[index] : weekdays[index]
+    }
+
+    /// "২৬ নভেম্বর"
+    static func gregorianDate(_ date: Date, calendar: Calendar = .current) -> String {
+        let parts = calendar.dateComponents([.day, .month], from: date)
+        return "\(digits(parts.day!)) \(gregorianMonths[parts.month! - 1])"
+    }
+}
+
+/// Fixed-date national days in Bangladesh, for the countdown complication.
+struct BanglaOccasion: Equatable {
+    let month: Int, day: Int
+    let short: String     // fits a small circle
+    let name: String
+    let symbol: String
+    let rgb: (Double, Double, Double)
+
+    static func == (a: BanglaOccasion, b: BanglaOccasion) -> Bool { a.month == b.month && a.day == b.day }
+
+    static let all: [BanglaOccasion] = [
+        .init(month: 2, day: 14, short: "ফাল্গুন", name: "পহেলা ফাল্গুন", symbol: "camera.macro", rgb: (1.0, 0.75, 0.1)),
+        .init(month: 2, day: 21, short: "একুশে", name: "শহীদ দিবস", symbol: "text.book.closed.fill", rgb: (0.95, 0.95, 0.95)),
+        .init(month: 3, day: 26, short: "স্বাধীনতা", name: "স্বাধীনতা দিবস", symbol: "flag.fill", rgb: (0.2, 0.82, 0.55)),
+        .init(month: 4, day: 14, short: "বৈশাখ", name: "পহেলা বৈশাখ", symbol: "sun.max.fill", rgb: (1.0, 0.33, 0.38)),
+        .init(month: 12, day: 16, short: "বিজয়", name: "বিজয় দিবস", symbol: "flag.fill", rgb: (1.0, 0.33, 0.38)),
+    ]
+
+    /// Every occasion with the whole days until its next occurrence, soonest first.
+    static func upcoming(after date: Date, calendar: Calendar = .current) -> [(BanglaOccasion, Int)] {
+        let today = calendar.startOfDay(for: date)
+        let year = calendar.component(.year, from: today)
+        return all.compactMap { occasion -> (BanglaOccasion, Int)? in
+            let days = [year, year + 1].compactMap { y -> Int? in
+                guard let day = calendar.date(from: DateComponents(year: y, month: occasion.month, day: occasion.day)) else { return nil }
+                let n = calendar.dateComponents([.day], from: today, to: day).day!
+                return n >= 0 ? n : nil
+            }.min()
+            return days.map { (occasion, $0) }
+        }
+        .sorted { $0.1 < $1.1 }
+    }
+
+    /// The next occasion on or after `date`, and how many whole days away it is (0 = today).
+    static func next(after date: Date, calendar: Calendar = .current) -> (BanglaOccasion, Int) {
+        let today = calendar.startOfDay(for: date)
+        let year = calendar.component(.year, from: today)
+        var best: (BanglaOccasion, Int)?
+        for occasion in all {
+            for y in [year, year + 1] {
+                guard let day = calendar.date(from: DateComponents(year: y, month: occasion.month, day: occasion.day)) else { continue }
+                let days = calendar.dateComponents([.day], from: today, to: day).day!
+                if days >= 0, best == nil || days < best!.1 { best = (occasion, days) }
+            }
+        }
+        return best!
+    }
+}

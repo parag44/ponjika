@@ -1,0 +1,9 @@
+build/
+build-device/
+DerivedData/
+.DS_Store
+xcuserdata/
+*.xcuserstate
+
+# Personal signing settings (Team ID, bundle ID)
+Config/Signing.local.xcconfig

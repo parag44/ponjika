@@ -1,0 +1,57 @@
+name: Ponjika
+options:
+  deploymentTarget:
+    watchOS: "11.0"
+  createIntermediateGroups: true
+# Bundle ID prefix and Team ID come from Config/Signing.xcconfig, which
+# includes your git-ignored Config/Signing.local.xcconfig.
+configFiles:
+  Debug: Config/Signing.xcconfig
+  Release: Config/Signing.xcconfig
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    CODE_SIGN_STYLE: Automatic
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  Ponjika:
+    type: application
+    platform: watchOS
+    sources:
+      - path: Ponjika
+      - path: Shared
+    dependencies:
+      - target: PonjikaWidgets
+    settings:
+      base:
+        PRODUCT_NAME: Ponjika
+        PRODUCT_BUNDLE_IDENTIFIER: $(PONJIKA_BUNDLE_ID_PREFIX)
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: পঞ্জিকা
+        INFOPLIST_KEY_WKApplication: YES
+        INFOPLIST_KEY_WKWatchOnly: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  PonjikaWidgets:
+    type: app-extension
+    platform: watchOS
+    sources:
+      - path: PonjikaWidgets
+      - path: Shared
+    info:
+      path: PonjikaWidgets/Info.plist
+      properties:
+        CFBundleDisplayName: পঞ্জিকা
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_NAME: PonjikaWidgets
+        PRODUCT_BUNDLE_IDENTIFIER: $(PONJIKA_BUNDLE_ID_PREFIX).widgets
+        INFOPLIST_FILE: PonjikaWidgets/Info.plist
+schemes:
+  Ponjika:
+    build:
+      targets:
+        Ponjika: all
+        PonjikaWidgets: all
