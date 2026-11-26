@@ -129,19 +129,32 @@ struct TodayPage: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 4) {
                     PageTitle(text: "আজ", symbol: "calendar", color: Palette.orange)
-                    Text(Bangla.weekday(date))
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundStyle(Palette.orange)
-                    (Text(Bangla.digits(b.day)).foregroundStyle(Palette.red)
-                     + Text(" \(b.monthName)").foregroundStyle(seasonColor))
-                        .font(.system(size: 26, weight: .bold))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.6)
-                    Text("\(Bangla.digits(b.year)) বঙ্গাব্দ")
-                        .font(.system(size: 13))
-                        .foregroundStyle(.secondary)
-                    Text("\(Bangla.gregorianDate(date)) \(Bangla.digits(Calendar.current.component(.year, from: date)))")
-                        .font(.system(size: 15, weight: .medium))
+                    // Tap the date to open the Bangla month calendar.
+                    NavigationLink {
+                        BanglaCalendarView(date: date)
+                    } label: {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(Bangla.weekday(date))
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundStyle(Palette.orange)
+                            (Text(Bangla.digits(b.day)).foregroundStyle(Palette.red)
+                             + Text(" \(b.monthName)").foregroundStyle(seasonColor))
+                                .font(.system(size: 26, weight: .bold))
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.6)
+                            Text("\(Bangla.digits(b.year)) বঙ্গাব্দ")
+                                .font(.system(size: 13))
+                                .foregroundStyle(.secondary)
+                            Text("\(Bangla.gregorianDate(date)) \(Bangla.digits(Calendar.current.component(.year, from: date)))")
+                                .font(.system(size: 15, weight: .medium))
+                            Label("ক্যালেন্ডার দেখুন", systemImage: "calendar")
+                                .font(.system(size: 11, weight: .semibold))
+                                .foregroundStyle(seasonColor)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
                     Label("\(b.season.name)কাল", systemImage: b.season.symbol)
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundStyle(seasonColor)

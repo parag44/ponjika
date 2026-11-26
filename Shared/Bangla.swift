@@ -26,11 +26,7 @@ struct BanglaDate: Equatable {
         let today = gregorian.date(from: DateComponents(year: gYear, month: gMonth, day: gDay))!
         var offset = gregorian.dateComponents([.day], from: newYear, to: today).day!
 
-        // Falgun falls in Feb–Mar of the following Gregorian year.
-        let falgunYear = newYearGregorianYear + 1
-        let isLeap = (falgunYear % 4 == 0 && falgunYear % 100 != 0) || falgunYear % 400 == 0
-        let lengths = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, isLeap ? 30 : 29, 30]
-
+        let lengths = Self.monthLengths(year: newYearGregorianYear - 593)
         var month = 0
         while month < 11 && offset >= lengths[month] {
             offset -= lengths[month]
@@ -41,6 +37,29 @@ struct BanglaDate: Equatable {
 
     var monthName: String { Bangla.months[month] }
     var season: Bangla.Season { Bangla.Season.allCases[month / 2] }
+
+    /// Day counts for each month of Bangla `year`. Falgun falls in Feb–Mar of
+    /// Gregorian year `year + 594`, and has 30 days when that year is a leap year.
+    static func monthLengths(year: Int) -> [Int] {
+        let falgunYear = year + 594
+        let isLeap = (falgunYear % 4 == 0 && falgunYear % 100 != 0) || falgunYear % 400 == 0
+        return [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, isLeap ? 30 : 29, 30]
+    }
+
+    /// The Gregorian date of the 1st of a Bangla month (midnight in `calendar`'s time zone).
+    static func firstDay(month: Int, year: Int, calendar: Calendar = .current) -> Date {
+        var gregorian = Calendar(identifier: .gregorian)
+        gregorian.timeZone = calendar.timeZone
+        let newYear = gregorian.date(from: DateComponents(year: year + 593, month: 4, day: 14))!
+        let offset = monthLengths(year: year).prefix(month).reduce(0, +)
+        return gregorian.date(byAdding: .day, value: offset, to: newYear)!
+    }
+
+    /// The (month, year) before or after this one, wrapping across years.
+    static func shifted(month: Int, year: Int, by delta: Int) -> (month: Int, year: Int) {
+        let total = year * 12 + month + delta
+        return (((total % 12) + 12) % 12, Int((Double(total) / 12).rounded(.down)))
+    }
 }
 
 enum Bangla {

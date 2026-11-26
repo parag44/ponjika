@@ -62,6 +62,13 @@ enum Holidays {
         upcoming(from: date, within: 400, calendar: calendar).first
     }
 
+    /// Holidays and observances that fall on `date` (including any day of a multi-day holiday).
+    static func on(_ date: Date, calendar: Calendar = .current) -> [Holiday] {
+        let day = calendar.startOfDay(for: date)
+        return list(for: calendar.component(.year, from: day), calendar: calendar)
+            .filter { $0.start <= day && day <= $0.end }
+    }
+
     // MARK: Building a year's list
 
     static func list(for year: Int, calendar: Calendar = .current) -> [Holiday] {

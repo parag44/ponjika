@@ -34,6 +34,7 @@
 		CC92DB321C766499A367A53D /* DayClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4CFB5F740BF2025E763446 /* DayClock.swift */; };
 		D4F657FC573CF44112D4A558 /* DayClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4CFB5F740BF2025E763446 /* DayClock.swift */; };
 		DE736A9E29BB25FE2B325791 /* ConditionsWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30484EC9158C2FBBD2C2657 /* ConditionsWidgets.swift */; };
+		EC124C6FD7E0EF7E7045E6B3 /* BanglaCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645CCF28822B37F73A4F869A /* BanglaCalendarView.swift */; };
 		F2B5753199CC8297564EF09A /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BBA4D853763CEC8E2A286 /* Conditions.swift */; };
 		F696F2ECBD82BB2FEF3DCEA9 /* Conditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BBA4D853763CEC8E2A286 /* Conditions.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		4D3F8E21062231B0D30DDEDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4D6893CA5BC6D2E3556AF187 /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
 		521DB1AB7534B202F4089CCE /* Ponjika.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ponjika.entitlements; sourceTree = "<group>"; };
+		645CCF28822B37F73A4F869A /* BanglaCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanglaCalendarView.swift; sourceTree = "<group>"; };
 		66C77B80405B5474C4B0B400 /* PonjikaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PonjikaApp.swift; sourceTree = "<group>"; };
 		7105A8FB7733E01F2632ACB4 /* MoonDisc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonDisc.swift; sourceTree = "<group>"; };
 		73794244937CBAFB82A4B33D /* SunWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunWidgets.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				93142946C07BDDC0A7A4F519 /* AppModel.swift */,
 				AF462E8CA74B2FF4E5417A5C /* Assets.xcassets */,
+				645CCF28822B37F73A4F869A /* BanglaCalendarView.swift */,
 				27E530B22B48406B6FDE6461 /* DashboardView.swift */,
 				521DB1AB7534B202F4089CCE /* Ponjika.entitlements */,
 				66C77B80405B5474C4B0B400 /* PonjikaApp.swift */,
@@ -280,6 +283,7 @@
 			files = (
 				5B2654D50D4612A8E48B4F4C /* AppModel.swift in Sources */,
 				81C1CC8806704203E25EEE8B /* Bangla.swift in Sources */,
+				EC124C6FD7E0EF7E7045E6B3 /* BanglaCalendarView.swift in Sources */,
 				F2B5753199CC8297564EF09A /* Conditions.swift in Sources */,
 				1DD3AE646A5169B6DC225A42 /* DashboardView.swift in Sources */,
 				CC92DB321C766499A367A53D /* DayClock.swift in Sources */,
